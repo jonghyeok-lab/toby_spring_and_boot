@@ -10,20 +10,35 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
 //@SpringBootApplication
+@Configuration()
 public class HellobootApplication {
+
+	@Bean
+	public HelloController helloController(HelloService helloService) {
+		return new HelloController(helloService);
+	}
+
+	@Bean
+	public HelloService helloService() {
+		return new SimpleHelloService();
+	}
 
 	public static void main(String[] args) {
 		// 스프링 컨테이너
-		GenericWebApplicationContext applicationContext = new GenericWebApplicationContext() {
+		AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext() {
 			@Override
 			protected void onRefresh() {
 				super.onRefresh();
@@ -38,8 +53,7 @@ public class HellobootApplication {
 
 			}
 		};
-		applicationContext.registerBean(HelloController.class); // 빈 등록
-		applicationContext.registerBean(SimpleHelloService.class);
+		applicationContext.register(HellobootApplication.class);
 		applicationContext.refresh(); // 빈 초기화
 
 
