@@ -26,6 +26,6 @@ public class HelloController {
     @GetMapping("") // 매핑 정보
     @ResponseBody
     public String hello(String name) {
-        return helloService.sayHello(Objects.requireNonNull(name));
+        return helloService.sayHello( Objects.requireNonNull(name));
     }
 }
