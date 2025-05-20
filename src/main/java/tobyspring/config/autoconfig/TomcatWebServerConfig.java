@@ -1,18 +1,18 @@
 package tobyspring.config.autoconfig;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.core.env.Environment;
 import tobyspring.config.ConditionalMyOnClass;
+import tobyspring.config.EnableMyConfigurationProperties;
 import tobyspring.config.MyAutoConfiguration;
 
 @MyAutoConfiguration
 //@Conditional(TomcatCondition.class) // 후보군들 중에서 빈으로 등록할지 말지 조건에 따라 스프링 컨테이너가 정할 수 있게 해줌
 @ConditionalMyOnClass("org.apache.catalina.startup.Tomcat")
+//@Import(ServerProperties.class)
+@EnableMyConfigurationProperties(ServerProperties.class)
 public class TomcatWebServerConfig {
 
 
