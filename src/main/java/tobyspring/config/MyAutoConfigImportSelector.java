@@ -26,7 +26,7 @@ public class MyAutoConfigImportSelector implements DeferredImportSelector {
 //                "tobyspring.config.autoconfig.TomcatWebServerConfig"
 //        };
 
-        // 어디서 읽냐? -> load 메서드에 들어가보면 META-INF/spiring/패키지이름을 포함한.imports
+        // 어디서 읽냐? -> load 메서드에 들어가보면 META-INF/spiring/패키지이름을 포함한.imports 에서 빈으로 등록.
         ImportCandidates candidate = ImportCandidates.load(MyAutoConfiguration.class, classLoader);
         return StreamSupport.stream(candidate.spliterator(), false).toArray(String[]::new);
     }

@@ -39,3 +39,6 @@
   - @ConditionalOnWebApplication
   - @ConditionalOnNotWebApplication
 - @ConditionalOnExpression - 스프링 SpEL(스프링 표현식)의 처리 결과를 기준으로 판단, 매우 상세한 조건설정이 가능.
+
+#### Spring JDBC 자동 구성
+![img_2.png](img_2.png)
