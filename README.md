@@ -21,8 +21,9 @@
 
 #### ImportSelector
 - 동적으로 Configuration을 Import 가능하게 해준다.
-- ㅂ동적의 예시는 yml 이나 DB에서 값을 읽어와서 로딩이 가능.
+  - 동적의 예시는 yml 이나 DB에서 값을 읽어와서 로딩이 가능.
 - ImportSelector의 역할은 문자열 배열로 리턴한 이름의 클래스들을 스프링 컨테이너의 빈으로 등록하게 해준다.
+- Enable~~ 은 구성 정보 관련 클래스들을 Import(등록)
 
 - 동적으로 구성 정보를 사용할 클래스 파일을 외부에서 읽어오는 전체적인 그림
 ![img.png](img.png)
