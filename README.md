@@ -1,6 +1,7 @@
-# Toby-s-Spring-Spring-Boot
-토비의 스프링 / 스프링부트 
+# Toby`s Spring Boot
 
+- 핵심 내용
+![img_3.png](img_3.png)
 
 ### 애플리케이션 빈 vs 컨테이너 인프라스트럭쳐 빈
 #### 애플리케이션 빈
@@ -43,3 +44,7 @@
 
 #### Spring JDBC 자동 구성
 ![img_2.png](img_2.png)
+
+#### 자동 구성 분석 방법
+- ConditionEvaluationReport: 자동 구성 클래스 Condition 결과로 등록뵌 빈 확인
+- ListableBeanFactory: 컨테이너 안에 생성된 등록된 빈들만 확인
